@@ -1,154 +1,199 @@
-<!DOCTYPE html>
-<html lang="zh-TW">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Orange Studio</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+ <!DOCTYPE html>
+  <html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Orange Studio</title>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #0f1a0f;
-      color: #f0ede0;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: #0f1a0f;
+        color: #f0ede0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
 
-    header {
-      width: 100%;
-      padding: 48px 24px 32px;
-      text-align: center;
-      border-bottom: 1px solid rgba(201,162,39,0.2);
-    }
+      header {
+        width: 100%;
+        padding: 48px 24px 32px;
+        text-align: center;
+        border-bottom: 1px solid rgba(201,162,39,0.2);
+      }
 
-    .logo { font-size: 56px; margin-bottom: 12px; }
+      .logo { font-size: 56px; margin-bottom: 12px; }
 
-    h1 {
-      font-size: 32px;
-      font-weight: 800;
-      color: #c9a227;
-      letter-spacing: 2px;
-      margin-bottom: 8px;
-    }
+      h1 {
+        font-size: 32px;
+        font-weight: 800;
+        color: #c9a227;
+        letter-spacing: 2px;
+        margin-bottom: 8px;
+      }
 
-    .tagline {
-      font-size: 15px;
-      color: #7a9b82;
-      letter-spacing: 0.5px;
-    }
+      .tagline {
+        font-size: 15px;
+        color: #7a9b82;
+        letter-spacing: 0.5px;
+      }
 
-    main {
-      width: 100%;
-      max-width: 680px;
-      padding: 40px 24px;
-      flex: 1;
-    }
+      main {
+        width: 100%;
+        max-width: 680px;
+        padding: 40px 24px;
+        flex: 1;
+      }
 
-    .section-title {
-      font-size: 13px;
-      font-weight: 700;
-      color: #c9a227;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 16px;
-    }
+      .section-title {
+        font-size: 13px;
+        font-weight: 700;
+        color: #c9a227;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 16px;
+      }
 
-    .app-card {
-      background: #14391e;
-      border: 1px solid rgba(201,162,39,0.25);
-      border-radius: 16px;
-      padding: 20px;
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      text-decoration: none;
-      color: inherit;
-      transition: border-color 0.2s;
-    }
+      .app-card {
+        background: #14391e;
+        border: 1px solid rgba(201,162,39,0.25);
+        border-radius: 16px;
+        padding: 20px;
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        text-decoration: none;
+        color: inherit;
+        transition: border-color 0.2s;
+      }
 
-    .app-card:hover { border-color: #c9a227; }
+      .app-card:hover { border-color: #c9a227; }
 
-    .app-icon { font-size: 40px; }
+      .app-icon { font-size: 40px; flex-shrink: 0; }
 
-    .app-info h2 {
-      font-size: 17px;
-      font-weight: 700;
-      color: #f0ede0;
-      margin-bottom: 4px;
-    }
+      .app-info h2 {
+        font-size: 17px;
+        font-weight: 700;
+        color: #f0ede0;
+        margin-bottom: 4px;
+      }
 
-    .app-info p {
-      font-size: 13px;
-      color: #7a9b82;
-      line-height: 1.5;
-    }
+      .app-info p {
+        font-size: 13px;
+        color: #7a9b82;
+        line-height: 1.5;
+      }
 
-    .contact-section {
-      margin-top: 40px;
-    }
+      .divider {
+        border: none;
+        border-top: 1px solid rgba(201,162,39,0.1);
+        margin: 32px 0;
+      }
 
-    .contact-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: #14391e;
-      border: 1px solid rgba(201,162,39,0.25);
-      border-radius: 12px;
-      padding: 14px 20px;
-      color: #c9a227;
-      text-decoration: none;
-      font-size: 15px;
-      font-weight: 600;
-      transition: border-color 0.2s;
-    }
+      .contact-section {
+        margin-top: 40px;
+      }
 
-    .contact-link:hover { border-color: #c9a227; }
+      .contact-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: #14391e;
+        border: 1px solid rgba(201,162,39,0.25);
+        border-radius: 12px;
+        padding: 14px 20px;
+        color: #c9a227;
+        text-decoration: none;
+        font-size: 15px;
+        font-weight: 600;
+        transition: border-color 0.2s;
+      }
 
-    footer {
-      width: 100%;
-      text-align: center;
-      padding: 24px;
-      font-size: 12px;
-      color: #7a9b82;
-      border-top: 1px solid rgba(201,162,39,0.1);
-    }
-  </style>
-</head>
-<body>
+      .contact-link:hover { border-color: #c9a227; }
 
-  <header>
-    <div class="logo">🍊</div>
-    <h1>Orange Studio</h1>
-    <p class="tagline">簡單好用的小工具　·　Simple &amp; Useful Apps</p>
-  </header>
+      footer {
+        width: 100%;
+        text-align: center;
+        padding: 24px;
+        font-size: 12px;
+        color: #7a9b82;
+        border-top: 1px solid rgba(201,162,39,0.1);
+      }
+    </style>
+  </head>
+  <body>
 
-  <main>
-    <p class="section-title">Apps</p>
+    <header>
+      <div class="logo">🍊</div>
+      <h1>Orange Studio</h1>
+      <p class="tagline">簡單好用的小工具　·　Simple &amp; Useful Apps</p>
+    </header>
 
-    <a class="app-card" href="#">
-      <span class="app-icon">🎲</span>
-      <div class="app-info">
-        <h2>骰骰子 · Dice Roller</h2>
-        <p>支援 D4 / D6 / D8 / D12 / D20，搖動手機即可擲骰。<br>
-           Shake to roll. Supports D4, D6, D8, D12, D20.</p>
-      </div>
-    </a>
+    <main>
+      <p class="section-title">Apps</p>
 
-    <div class="contact-section">
-      <p class="section-title">聯絡我們 · Contact</p>
-      <a class="contact-link" href="mailto:orangestudiogo@gmail.com">
-        ✉️ orangestudiogo@gmail.com
+      <a class="app-card" href="#">
+        <span class="app-icon">🍇</span>
+        <div class="app-info">
+          <h2>勃艮第地圖+ · Burgundy Map+</h2>
+          <p>互動地圖收錄勃艮第 AOC 產區與葡萄園分級，附酒莊詳情與酒窖管理。<br>
+             Interactive map of Burgundy AOC zones, vineyard classifications, and cellar manager.</p>
+        </div>
       </a>
-    </div>
-  </main>
 
-  <footer>
-    © 2026 Orange Studio · All rights reserved
-  </footer>
+      <a class="app-card" href="#">
+        <span class="app-icon">🍷</span>
+        <div class="app-info">
+          <h2>波爾多地圖+ · Bordeaux Map+</h2>
+          <p>76 個分級酒莊完整資訊，含 1855 年 Médoc 分級、Saint-Émilion、Pomerol 與 Sauternes。<br>
+             76 classified châteaux with full details — 1855 Médoc, Saint-Émilion, Pomerol &amp;
+  Sauternes.</p>
+        </div>
+      </a>
 
-</body>
-</html>
+      <a class="app-card" href="#">
+        <span class="app-icon">🍶</span>
+        <div class="app-info">
+          <h2>日本酒手帳 · Sake Map</h2>
+          <p>日本全國酒造互動地圖，記錄你的清酒收藏與品飲筆記。<br>
+             Interactive map of Japan's sake breweries with cellar and tasting notes.</p>
+        </div>
+      </a>
+
+      <a class="app-card" href="#">
+        <span class="app-icon">🗝️ </span>
+        <div class="app-info">
+          <h2>Cave · 我的酒窖</h2>
+          <p>管理你的葡萄酒收藏，記錄品飲筆記、拍照存檔，與地圖 app 無縫同步。<br>
+             Manage your wine collection with tasting notes, photos, and seamless map sync.</p>
+        </div>
+      </a>
+
+      <hr class="divider" />
+
+      <a class="app-card" href="#">
+        <span class="app-icon">🎲</span>
+        <div class="app-info">
+          <h2>骰骰子 · Dice Roller</h2>
+          <p>支援 D4 / D6 / D8 / D12 / D20，搖動手機即可擲骰。<br>
+             Shake to roll. Supports D4, D6, D8, D12, D20.</p>
+        </div>
+      </a>
+
+      <div class="contact-section">
+        <p class="section-title">聯絡我們 · Contact</p>
+        <a class="contact-link" href="mailto:orangestudiogo@gmail.com">
+          ✉️  orangestudiogo@gmail.com
+        </a>
+      </div>
+    </main>
+
+    <footer>
+      © 2026 Orange Studio · All rights reserved
+    </footer>
+
+  </body>
+  </html>
